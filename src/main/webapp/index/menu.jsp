@@ -1,5 +1,6 @@
 <%@page pageEncoding="UTF-8" %>
 
+<a href="../index/index.jsp">トップページ</a>
 <a href="../loginkanri/login-in.jsp">ログイン</a>
 
 <a href="../gakuseikanri/studentList.action">学生管理</a>

@@ -25,7 +25,7 @@ public abstract class StudentListAction extends Action {
 			return "student_list_error.jsp";
 		}
 		
-		
+//		
 		
 		String keyword=teacher.school_cd;
 		

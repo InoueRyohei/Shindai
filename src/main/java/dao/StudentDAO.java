@@ -11,7 +11,7 @@ import bean.Student;
 //studentテーブルに対する処理を行う。
 //学生検索と学生追加、変更、削除の機能を持たせる
 public class StudentDAO extends DAO {
-	
+//	学生検索機能
 	public List<Student> serch(String keyword) throws Exception {
 		List<Student> list=new ArrayList<>();
 		
@@ -38,4 +38,5 @@ public class StudentDAO extends DAO {
 		
 		return list;
 	}
+	
 }

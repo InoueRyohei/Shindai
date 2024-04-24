@@ -3,6 +3,7 @@ package gakuseikanri;
 import java.util.List;
 
 import bean.Student;
+import bean.Teacher;
 import dao.StudentDAO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -11,12 +12,9 @@ import tool.Action;
 
 //ログイン中のアカウントに応じて学生一覧を取得し、student_list.jspを返す。
 //ログインしていない場合、student_list_error.jspを返す。
-public abstract class StudentListAction extends Action {
+public  class StudentListAction extends Action {
 	
-	@SuppressWarnings("unchecked")
-	public String excute(
-		HttpServletRequest request, HttpServletResponse response
-	) throws Exception {
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		HttpSession session=request.getSession();
 		
@@ -26,8 +24,8 @@ public abstract class StudentListAction extends Action {
 		}
 		
 //		
-		
-		String keyword=teacher.school_cd;
+		Teacher teacher=(Teacher)session.getAttribute("teacher");
+		String keyword=teacher.getSchool_cd();
 		
 		StudentDAO dao=new StudentDAO();
 		List<Student> list=dao.serch(keyword);
@@ -36,5 +34,7 @@ public abstract class StudentListAction extends Action {
 		
 		return "student_list.jsp";
 	}
+
+
 
 }

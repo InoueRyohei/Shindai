@@ -32,7 +32,7 @@ public class StudentCreateAction extends Action {
 		request.setAttribute("list", list);
 		
 
-		return "list.jsp";
+		return "student_create_done.jsp";
 	}
 }
 

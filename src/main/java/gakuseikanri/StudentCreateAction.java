@@ -1,4 +1,4 @@
-package student_management;
+package gakuseikanri;
 
 import java.util.List;
 
@@ -8,14 +8,18 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import tool.Action;
 
-public class InsertAction extends Action {
+
+public class StudentCreateAction extends Action {
 	public String execute(
 		HttpServletRequest request, HttpServletResponse response
 	) throws Exception {
 	
 		String name=request.getParameter("name");
-		Integer price=Integer.parseInt.parseInt(request.getParameter("price"));
-	
+		Integer no=Integer.parseInt(request.getParameter("no"));
+		Integer ent_year=Integer.parseInt(request.getParameter("ent_year"));
+		Integer class_num=Integer.parseInt(request.getParameter("class_num"));
+		
+		
 		Student p=new Student();
 		p.setEnt_year(ent_year);
 		p.setNo(no);
@@ -25,8 +29,11 @@ public class InsertAction extends Action {
 		dao.insert(p);
 
 		List<Student> list=dao.search("");
-		request.setAttribute("list, list");
+		request.setAttribute("list", list);
+		
 
 		return "list.jsp";
 	}
 }
+
+//372p

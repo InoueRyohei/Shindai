@@ -28,7 +28,7 @@ public  class StudentListAction extends Action {
 		String keyword=teacher.getSchool_cd();
 		
 		StudentDAO dao=new StudentDAO();
-		List<Student> list=dao.serch(keyword);
+		List<Student> list=dao.search(keyword);
 		
 		session.setAttribute("list", list);
 		

@@ -12,7 +12,7 @@ import bean.Student;
 //学生検索と学生追加、変更、削除の機能を持たせる
 public class StudentDAO extends DAO {
 //	学生検索機能
-	public List<Student> serch(String keyword) throws Exception {
+	public List<Student> search(String keyword) throws Exception {
 		List<Student> list=new ArrayList<>();
 		
 		Connection con=getConnection();

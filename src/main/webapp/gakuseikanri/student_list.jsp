@@ -6,19 +6,27 @@
 
 <h2>学生管理</h2>
 
+<a href="StudentCreate.action">新規登録</a>
+<br>
 <label>入学年度</label>
 <label>クラス</label>
 <br>
-<select name=f1>
-	<% for(int i=2000; i<=2025; i++) { %>
-		<option value="<%= i %>"><%= i %></option>
-	<% } %>
-</select>
-<select name=f2>
-	<c:forEach var="student" items="${list }">
-		${sudent.class_num }
-	</c:forEach>
-</select>
+
+<form action="" method="post">
+	<select name=f1>
+		<% for(int i=2000; i<=2025; i++) { %>
+			<option value="<%= i %>"><%= i %></option>
+		<% } %>
+	</select>
+	<select name=f2>
+		<c:forEach var="student" items="${list }">
+			${sudent.class_num }
+		</c:forEach>
+	</select>
+	<label for="isStudying">在学中</label>
+	<input type="checkbox" id="is_attend" name="is_attend" value="true">
+	<input type="submit" value="絞込み">
+</form>
 
 <table style="border-collapse:separate;border-spacing:10px;">
 	<tr>

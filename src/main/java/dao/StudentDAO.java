@@ -39,4 +39,26 @@ public class StudentDAO extends DAO {
 		return list;
 	}
 	
+	//追加機能
+	 public int insert(Student student) throws Exception {
+		Connection con=getConnection();
+
+		PreparedStatement st=con.prepareStatement(
+			"insert into student values(?, ?, ?. ?, ?, ?)");
+		st.setString(1, student.getNo());
+		st.setString(2, student.getName());
+		st.setInt(3, student.getEnt_year());
+		st.setInt(4, student.getClass_num());
+		st.setBoolean(5, student.getIs_attend());
+		st.setString(6, student.getSchool_cd());
+		
+		
+		int list=st.executeUpdate();
+
+		st.close();
+		con.close();
+		return list;
+	}
 }
+
+	

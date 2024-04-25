@@ -1,10 +1,12 @@
 package student_management;
 
-import bean.Product;
-import dao.ProductDAO;
+import java.util.List;
+
+import bean.Student;
+import dao.StudentDAO;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import tool.Action;
-import javax.servlet.http.*;
-import javax.util.List;
 
 public class InsertAction extends Action {
 	public String execute(
@@ -14,17 +16,17 @@ public class InsertAction extends Action {
 		String name=request.getParameter("name");
 		Integer price=Integer.parseInt.parseInt(request.getParameter("price"));
 	
-		Product p=new Product();
+		Student p=new Student();
 		p.setEnt_year(ent_year);
 		p.setNo(no);
 		p.setName(name);
 		p.setClass_num(class_num);		
-		ProductDAO dao=new ProductDAO();
+		StudentDAO dao=new StudentDAO();
 		dao.insert(p);
 
-		List<Product> list=dao.search("");
+		List<Student> list=dao.search("");
 		request.setAttribute("list, list");
 
-		return "list.jsp"
+		return "list.jsp";
 	}
 }

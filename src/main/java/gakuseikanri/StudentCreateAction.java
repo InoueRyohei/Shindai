@@ -15,7 +15,7 @@ public class StudentCreateAction extends Action {
 	) throws Exception {
 	
 		String name=request.getParameter("name");
-		Integer no=Integer.parseInt(request.getParameter("no"));
+		String no=request.getParameter("no");
 		Integer ent_year=Integer.parseInt(request.getParameter("ent_year"));
 		Integer class_num=Integer.parseInt(request.getParameter("class_num"));
 		

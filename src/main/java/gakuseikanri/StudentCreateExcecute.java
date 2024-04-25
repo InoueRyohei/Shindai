@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import tool.Action;
 
 
-public class StudentCreateAction extends Action {
+public class StudentCreateExcecute extends Action {
 	public String execute(
 		HttpServletRequest request, HttpServletResponse response
 	) throws Exception {

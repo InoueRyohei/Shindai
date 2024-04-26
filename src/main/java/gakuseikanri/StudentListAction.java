@@ -34,7 +34,4 @@ public  class StudentListAction extends Action {
 		
 		return "student_list.jsp";
 	}
-
-
-
 }

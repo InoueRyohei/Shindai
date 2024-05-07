@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import tool.Action;
 
 
-public class StudentCreateExcecute extends Action {
+public class StudentCreateExcecuteAction extends Action {
 	public String execute(
 		HttpServletRequest request, HttpServletResponse response
 	) throws Exception {
@@ -18,7 +18,6 @@ public class StudentCreateExcecute extends Action {
 		String no=request.getParameter("no");
 		Integer ent_year=Integer.parseInt(request.getParameter("ent_year"));
 		Integer class_num=Integer.parseInt(request.getParameter("class_num"));
-		
 		
 		Student p=new Student();
 		p.setEnt_year(ent_year);
@@ -36,4 +35,4 @@ public class StudentCreateExcecute extends Action {
 	}
 }
 
-//372p
+//372p gakuseikanri.StudentCreateExecuteAction

@@ -20,7 +20,7 @@
 	</select>
 	<select name=f2>
 		<c:forEach var="student" items="${list }">
-			<option value="${sudent.class_num }">${student.class_num }</option>
+			${sudent.class_num }
 		</c:forEach>
 	</select>
 	<label for="isStudying">在学中</label>
@@ -59,3 +59,9 @@
 </table>
 
 <%@include file="../footer.html" %>
+
+
+
+
+
+

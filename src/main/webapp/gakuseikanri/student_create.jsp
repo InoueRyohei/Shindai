@@ -5,7 +5,7 @@
 <%@include file="../index/menu.jsp" %>
 
 
-<form action="StudentCreateExecute.action" method="post">
+<form action="StudentCreateExcecute.action" method="post">
 	入学年度<select name="ent_year">
         <% for(int i=2000; i<=2025; i++) { %>
 			<option value="<%= i %>"><%= i %></option>

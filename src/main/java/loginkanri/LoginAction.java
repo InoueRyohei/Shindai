@@ -17,6 +17,12 @@ public class LoginAction extends Action {
 
 		String id=request.getParameter("id");
 		String password=request.getParameter("password");
+		
+		// IDまたはPWが未入力の場合にログインフォームに戻る
+        if (id == null || id.isEmpty() || password == null || password.isEmpty()) {
+            request.setAttribute("errorMessage", "IDまたはパスワードを入力してください");
+            return "login-in.jsp";
+        }
 
 		TeacherDAO dao=new TeacherDAO();
 		Teacher teacher=dao.search(id, password);
@@ -26,6 +32,7 @@ public class LoginAction extends Action {
 			return "login-out.jsp";
 		}
 		
-		return "login-error.jsp";
+		request.setAttribute("errorMessage", "IDまたはパスワードが確認できませんでした");
+        return "login-in.jsp";
 	}
 }

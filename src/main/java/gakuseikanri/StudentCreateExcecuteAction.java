@@ -42,11 +42,9 @@ public class StudentCreateExcecuteAction extends Action {
 		boolean noDuplication = false;
 		for(int i=0; i<list.size(); i++) {
 //			System.out.println(list.get(i).getNo());
-			
-			
-			
+
 			if (list.get(i).getNo().equals(no)) {
-				System.out.println(no);
+//				System.out.println(no);
 				noDuplication=true;
 				break;
 			}

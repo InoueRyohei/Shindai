@@ -26,6 +26,38 @@ public class StudentCreateExcecuteAction extends Action {
 		Teacher teacher=(Teacher)session.getAttribute("teacher");
 		String school_cd=teacher.getSchool_cd();
 		
+		if (name == null || name.isEmpty() || no == null || no.isEmpty()) {
+            request.setAttribute("errorMessage", "学生番号または氏名を入力してください");
+            return "student_create.jsp";
+        }
+		
+		if (ent_year == 0) {
+            request.setAttribute("errorMessage", "入学年度を選択してください");
+            return "student_create.jsp";
+        }
+		
+//		学生番号が重複している場合の処理
+		StudentDAO dao=new StudentDAO();
+		List<Student> list=dao.search(""); 
+		boolean noDuplication = false;
+		for(int i=0; i<list.size(); i++) {
+//			System.out.println(list.get(i).getNo());
+			
+			
+			
+			if (list.get(i).getNo().equals(no)) {
+				System.out.println(no);
+				noDuplication=true;
+				break;
+			}
+		}
+		
+		if (noDuplication) {
+			request.setAttribute("errorMessage", "学生番号が重複しています");
+			return "student_create.jsp";
+		}
+		
+		
 		Student p=new Student();
 		p.setEnt_year(ent_year);
 		p.setNo(no);
@@ -33,15 +65,15 @@ public class StudentCreateExcecuteAction extends Action {
 		p.setClass_num(class_num);
 		p.setIs_attend(is_attend);
 		p.setSchool_cd(school_cd);
-		StudentDAO dao=new StudentDAO();
+//		StudentDAO dao=new StudentDAO();
 		dao.insert(p);
 
-		List<Student> list=dao.search("");
-		request.setAttribute("list", list);
+
 		
 
 		return "student_create_done.jsp";
 	}
+
 }
 
 //372p gakuseikanri.StudentCreateExecuteAction

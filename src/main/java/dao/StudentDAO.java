@@ -18,8 +18,8 @@ public class StudentDAO extends DAO {
 		Connection con=getConnection();
 		
 		PreparedStatement st=con.prepareStatement(
-			"select * from student where school_cd = ?");
-		st.setString(1, keyword);
+			"select * from student where school_cd like ?");
+		st.setString(1, '%'+keyword+'%');
 		ResultSet rs=st.executeQuery();
 		
 		while (rs.next()) {

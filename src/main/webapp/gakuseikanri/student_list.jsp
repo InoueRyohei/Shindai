@@ -53,7 +53,7 @@
         ×
     </c:if>
 	</td>
-	<td><a href="">変更</a></td>
+	<td><a href="StudentUpdate.action?update_no=${student.no}">変更</a></td>
 	</tr>
 </c:forEach>
 </table>

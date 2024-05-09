@@ -11,19 +11,19 @@
 <% } %>
 
 <%
-    // ログインに失敗した場合に入力されたnameを取得
+    // 失敗した場合に入力されたnameを取得
     String inputName = request.getParameter("name");
     if(inputName == null) {
         inputName = "";
     }
     
-    // ログインに失敗した場合に入力されたnoを取得
+    // 失敗した場合に入力されたnoを取得
     String inputNo = request.getParameter("no");
     if(inputNo == null) {
         inputNo = "";
     }
 %>
-
+<h2>学生登録</h2>
 
 <form action="StudentCreateExcecute.action" method="post">
 	<p>入学年度<select name="ent_year">

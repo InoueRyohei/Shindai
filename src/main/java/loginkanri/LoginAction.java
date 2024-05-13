@@ -29,10 +29,10 @@ public class LoginAction extends Action {
 		
 		if (teacher!=null) {
 			session.setAttribute("teacher", teacher);
-			return "login-out.jsp";
+			return "../index/index.jsp";
 		}
 		
 		request.setAttribute("errorMessage", "IDまたはパスワードが確認できませんでした");
-        return "../index/index.jsp";
+        return "login-in.jsp";
 	}
 }

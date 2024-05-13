@@ -33,6 +33,6 @@ public class LoginAction extends Action {
 		}
 		
 		request.setAttribute("errorMessage", "IDまたはパスワードが確認できませんでした");
-        return "login-in.jsp";
+        return "../index/index.jsp";
 	}
 }

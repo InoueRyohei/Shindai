@@ -1,6 +1,8 @@
 <%@page contentType="text/html; charset=UTF-8" %>
-<%@include file="../header.html" %>
+<%@include file="../header.jsp" %>
 <%@include file="../index/menu.jsp" %>
+
+<div class="main">
 
 <%-- エラーメッセージがあれば表示 --%>
 <% String errorMessage = (String)request.getAttribute("errorMessage"); %>
@@ -38,4 +40,6 @@
 <p><input type="submit" value="ログイン"></p>
 </form>
 
-<%@include file="../footer.html" %>
+</div>
+
+<%@include file="../footer.jsp" %>

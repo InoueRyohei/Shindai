@@ -43,7 +43,7 @@
     <!-- Navigation section on the left -->
     <div class="nav">
         <a href="../loginkanri/login-in.jsp">ログイン</a>
-        <a href="../gakuseikanri/studentList.action">学生管理</a>
+        <a href="../gakuseikanri/StudentList.action">学生管理</a>
         <span>成績管理</span> <!-- リンクなしのテキスト -->
         <a href="#">成績参照</a>
         <a href="#">成績検索</a>

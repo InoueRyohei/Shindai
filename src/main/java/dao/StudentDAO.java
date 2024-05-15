@@ -101,7 +101,7 @@ public class StudentDAO extends DAO {
 		 Connection con=getConnection();
 		 
 		 PreparedStatement st=con.prepareStatement(
-				 "UPDATE STUDENT SET NO = ?, NAME = ?, ENT_YEAR = ?, CLASS_NUM = ?, IS_ATTEND = ?, SCHOOL_CD = ? "
+				 "UPDATE STUDENT SET NO = ?, NAME = ?, ENT_YEAR = ?, CLASS_NUM = ?, IS_ATTEND = ? "
 				 + "WHERE NO = ?");
 		 
 		 st.setString(1, student.getNo());
@@ -109,8 +109,7 @@ public class StudentDAO extends DAO {
 		 st.setInt(3, student.getEnt_year());
 		 st.setInt(4, student.getClass_num());
 		 st.setBoolean(5, student.getIs_attend());
-		 st.setString(6, student.getSchool_cd());
-		 st.setString(7, update_no);
+		 st.setString(6, update_no);
 		 
 		 int list=st.executeUpdate();
 		 

@@ -18,7 +18,7 @@ public class SubjectDAO extends DAO {
 		
 		Connection con=getConnection();
 		
-		PreparedStatemet st=con.prepareStatement(
+		PreparedStatement st=con.prepareStatement(
 			"select * from subject where school=cd like ?");
 		st.setString(1, '%'+keyword+'%');
 		ResultSet rs=st.executeQuery();
@@ -29,100 +29,49 @@ public class SubjectDAO extends DAO {
 			s.setCd(rs.getString("cd"));
 			s.setName(rs.getString("name"));
 			list.add(s);
+		}
+	
+		st.close();
+		con.close();
+		
+		return list;
+	}
+
+	//追加機能
+	public int insert(Subject subject) throws Exception {
+		Connection con=getConnection();
+		
+		PreparedStatement st=con.prepareStatement(
+				"INSERT INTO SUBJECT VALUES(?, ?, ?, ?, ?, ?)");
+		
+			st.setString(1,subject.getSchool_cd());
+			st.setString(2,subject.getCd());
+			st.setString(3,subject.getName());
+			
+			
+			int list=st.executeUpdate();
+			
+			st.close();
+			con.close();
+			return list;
 	}
 	
-	st.close();
-	con.close();
-	
-	return list;
-}
-
-	//
-	public Subject searchByNo(String )
-	
-
-
-
---------------------------------------------------------------------------------------------------
-
-	
-	// 学生番号で学生情報を検索するメソッド
-    public Student searchByNo(String studentNo) throws Exception {
-        Connection con = getConnection();
-        PreparedStatement st = null;
-        ResultSet rs = null;
-        Student student = null;
-
-        try {
-            st = con.prepareStatement("SELECT * FROM student WHERE no = ?");
-            st.setString(1, studentNo);
-            rs = st.executeQuery();
-
-            if (rs.next()) {
-                student = new Student();
-                student.setNo(rs.getString("no"));
-                student.setName(rs.getString("name"));
-                student.setEnt_year(rs.getInt("ent_year"));
-                student.setClass_num(rs.getInt("class_num"));
-                student.setIs_attend(rs.getBoolean("is_attend"));
-                student.setSchool_cd(rs.getString("school_cd"));
-            }
-        } finally {
-            // リソースの解放
-            if (rs != null) {
-                rs.close();
-            }
-            if (st != null) {
-                st.close();
-            }
-            con.close();
-        }
-
-        return student;
-    }
-	
-	//追加機能
-	 public int insert(Student student) throws Exception {
+	//	変更機能
+	public int update(String subject, String update_no) throws Exception {
 		Connection con=getConnection();
-
+		
 		PreparedStatement st=con.prepareStatement(
-				"INSERT INTO STUDENT VALUES(?, ?, ?, ?, ?, ?)");
+				"UPDTE SUBJECT SET SCHOOL_CD = ?, CD = ?, NAME = ?" + "WHERE NO = ?");
 		
-		st.setString(1, student.getNo());
-		st.setString(2, student.getName());
-		st.setInt(3, student.getEnt_year());
-		st.setInt(4, student.getClass_num());
-		st.setBoolean(5, student.getIs_attend());
-		st.setString(6, student.getSchool_cd());
-		
+		st.setString(1,subject.getSchool_cd());
+		st.setString(2,subject.getCd());
+		st.setString(3,subject.getName());
+		st.setString(4,update_no);
 		
 		int list=st.executeUpdate();
-
+		
 		st.close();
 		con.close();
 		return list;
 	}
-	 
-	 //変更機能
-	 public int update(Student student, String update_no) throws Exception {
-		 Connection con=getConnection();
-		 
-		 PreparedStatement st=con.prepareStatement(
-				 "UPDATE STUDENT SET NO = ?, NAME = ?, ENT_YEAR = ?, CLASS_NUM = ?, IS_ATTEND = ?, SCHOOL_CD = ? "
-				 + "WHERE NO = ?");
-		 
-		 st.setString(1, student.getNo());
-		 st.setString(2, student.getName());
-		 st.setInt(3, student.getEnt_year());
-		 st.setInt(4, student.getClass_num());
-		 st.setBoolean(5, student.getIs_attend());
-		 st.setString(6, student.getSchool_cd());
-		 st.setString(7, update_no);
-		 
-		 int list=st.executeUpdate();
-		 
-		 st.close();
-		 con.close();
-		 return list;
-	 }
 }

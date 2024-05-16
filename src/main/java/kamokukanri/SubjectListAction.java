@@ -2,9 +2,9 @@ package kamokukanri;
 
 import java.util.List;
 
-import javax.security.auth.Subject;
-
+import bean.Subject;
 import bean.Teacher;
+import dao.SubjectDAO;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -18,7 +18,7 @@ public String execute(HttpServletRequest request, HttpServletResponse response) 
 		
 //		未ログイン時の処理
 		if (session.getAttribute("teacher")==null) {
-			return "student_list_error.jsp";
+			return "subject_list_error.jsp";
 		}
 		
 //		
@@ -26,9 +26,10 @@ public String execute(HttpServletRequest request, HttpServletResponse response) 
 		String keyword=teacher.getSchool_cd();
 		
 		SubjectDAO dao=new SubjectDAO();
-		List<Subject> list=dao.search(keyword);
+		List<Subject> list2=dao.search(keyword);
+//		System.out.println(list);
 		
-		session.setAttribute("list", list);
+		session.setAttribute("list2", list2);
 		
 		return "subject_list.jsp";
 	}

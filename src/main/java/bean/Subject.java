@@ -2,25 +2,25 @@ package bean;
 
 public class Subject implements java.io.Serializable {
 	private String school_cd;
-	private String cd;
-	private String name;
+	private String subject_cd;
+	private String subject_name;
 	
 	public String getSchool_cd() {
 		return school_cd;
 	}
-	public String getCd() {
-		return cd;
+	public String getSubject_cd() {
+		return subject_cd;
 	}
-	public String getName() {
-		return name;
+	public String getSubject_name() {
+		return subject_name;
 	}
 	public void setSchool_cd(String school_cd) {
 		this.school_cd=school_cd;
 	}
-	public void setCd(String cd) {
-		this.cd=cd;
+	public void setSubject_cd(String subject_cd) {
+		this.subject_cd=subject_cd;
 	}
-	public void setName(String name) {
-		this.name=name;
+	public void setSubject_name(String subject_name) {
+		this.subject_name=subject_name;
 	}
 }

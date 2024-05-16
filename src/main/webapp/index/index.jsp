@@ -17,7 +17,7 @@
             </div>
 
             <div class="box box-blue">
-                <a href="#">科目管理</a> <!-- リンクあり -->
+                <a href="../kamokukanri/SubjectList.action">科目管理</a> <!-- リンクあり -->
             </div>
         </div>
 

@@ -29,6 +29,7 @@ public  class StudentListAction extends Action {
 		
 		StudentDAO dao=new StudentDAO();
 		List<Student> list=dao.search(keyword);
+//		System.out.println(list);
 		
 		session.setAttribute("list", list);
 		

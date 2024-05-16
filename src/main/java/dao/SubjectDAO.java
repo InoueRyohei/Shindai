@@ -19,16 +19,16 @@ public class SubjectDAO extends DAO {
 		Connection con=getConnection();
 		
 		PreparedStatement st=con.prepareStatement(
-			"select * from subject where school=cd like ?");
+			"select * from subject where school_cd like ?");
 		st.setString(1, '%'+keyword+'%');
 		ResultSet rs=st.executeQuery();
 		
 		while (rs.next()) {
-			Subject s=new Subject();
-			s.setSchool_cd(rs.getString("school_cd"));
-			s.setCd(rs.getString("cd"));
-			s.setName(rs.getString("name"));
-			list.add(s);
+			Subject sub=new Subject();
+			sub.setSchool_cd(rs.getString("school_cd"));
+			sub.setSubject_cd(rs.getString("cd"));
+			sub.setSubject_name(rs.getString("name"));
+			list.add(sub);
 		}
 	
 		st.close();
@@ -45,8 +45,8 @@ public class SubjectDAO extends DAO {
 				"INSERT INTO SUBJECT VALUES(?, ?, ?, ?, ?, ?)");
 		
 			st.setString(1,subject.getSchool_cd());
-			st.setString(2,subject.getCd());
-			st.setString(3,subject.getName());
+			st.setString(2,subject.getSubject_cd());
+			st.setString(3,subject.getSubject_name());
 			
 			
 			int list=st.executeUpdate();
@@ -61,11 +61,11 @@ public class SubjectDAO extends DAO {
 		Connection con=getConnection();
 		
 		PreparedStatement st=con.prepareStatement(
-				"UPDTE SUBJECT SET SCHOOL_CD = ?, CD = ?, NAME = ?" + "WHERE NO = ?");
+				"UPDTE SUBJECT SET SCHOOL_CD = ?, CD = ?, NAME = ?" + "WHERE CD = ?");
 		
 		st.setString(1,subject.getSchool_cd());
-		st.setString(2,subject.getCd());
-		st.setString(3,subject.getName());
+		st.setString(2,subject.getSubject_cd());
+		st.setString(3,subject.getSubject_name());
 		st.setString(4,update_no);
 		
 		int list=st.executeUpdate();

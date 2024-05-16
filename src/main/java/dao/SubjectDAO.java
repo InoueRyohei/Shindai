@@ -57,7 +57,7 @@ public class SubjectDAO extends DAO {
 	}
 	
 	//	変更機能
-	public int update(String subject, String update_no) throws Exception {
+	public int update(Subject subject, String update_no) throws Exception {
 		Connection con=getConnection();
 		
 		PreparedStatement st=con.prepareStatement(

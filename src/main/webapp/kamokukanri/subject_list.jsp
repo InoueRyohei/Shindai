@@ -6,7 +6,7 @@
 
 <h2>科目管理一覧</h2>
 
-<a href="">新規登録</a>
+<a href="SubjectCreate.action">新規登録</a>
 
 <table style="border-collapse:separate;border-spacing:10px;">
 	<tr>

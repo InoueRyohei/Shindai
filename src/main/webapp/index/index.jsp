@@ -5,7 +5,7 @@
 
         <div class="top">
             <div class="box box-red">
-                <a href="../gakuseikanri/studentList.action">学生管理</a> <!-- リンクあり -->
+                <a href="../gakuseikanri/StudentList.action">学生管理</a> <!-- リンクあり -->
             </div>
 
             <div class="box box-green">

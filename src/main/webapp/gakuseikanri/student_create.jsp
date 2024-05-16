@@ -1,8 +1,7 @@
 <%@page contentType="text/html; charset=UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="../header.jsp"%>
-<!-- menu.jspを読み込む -->
-<%@include file="../index/menu.jsp" %>
+<%@include file="../navigation.jsp" %>
 
 <%-- エラーメッセージがあれば表示 --%>
 <% String errorMessage = (String)request.getAttribute("errorMessage"); %>

@@ -23,7 +23,7 @@ public class SubjectDAO extends DAO {
 		st.setString(1, '%'+keyword+'%');
 		ResultSet rs=st.executeQuery();
 		
-		While (rs.next()) {
+		while (rs.next()) {
 			Subject s=new Subject();
 			s.setSchool_cd(rs.getString("school_cd"));
 			s.setCd(rs.getString("cd"));

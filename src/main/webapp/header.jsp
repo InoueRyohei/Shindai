@@ -24,6 +24,12 @@ if (accountName == null) {
             align-items: center; /* 垂直中央寄せ */
         }
         
+        .wrapper {
+   		display: flex;
+    	flex-direction: column;
+    	min-height: 100vh;
+		}
+        
         .sidebar {
             width: 200px;
             background-color: #333;
@@ -68,7 +74,7 @@ if (accountName == null) {
         }
          .container {
             display: flex; /* 横方向のレイアウト */
-            height: 100vh; /* ビューポート全体の高さ */
+            flex: 1; /* 残りのスペースを占有 */
         }
 
         .nav {

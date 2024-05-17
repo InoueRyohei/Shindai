@@ -2,6 +2,7 @@
 <%@include file="../header.jsp" %>
 <%@include file="../navigation.jsp" %>
 
+<h2>ログイン</h2>
 
 <div class="main">
 
